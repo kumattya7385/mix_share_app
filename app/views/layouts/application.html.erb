@@ -7,9 +7,28 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #e68845;"> 
+        <div class="container mr-auto">
+          <form class="form-inline">
+            <%= link_to "Vmish", '#', class: "navbar-brand",id: "logo"%>
+            <input class="form-control-sm" type="search" placeholder="キーワードを入力" aria-label="キーワードを入力">
+          </form>
+        <div>
+        <ul class="navbar-nav justify-content-end bg-secondry">
+          <li class="nav-item active"><%= link_to "お気に入り一覧",   '#' ,class:"nav-link"%></li>
+          <li class="nav-item active"><%= link_to "投稿する",   '#' ,class:"nav-link"%></li>
+          <li class="nav-item active"><%= link_to "プロフィール", '#' ,class:"nav-link"%></li>
+        </ul>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
