@@ -12,4 +12,15 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  # テストユーザーがログインしていればtrueを返す
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
+
+  private
+    #統合テストの場合tureを返す
+    def integration_test?
+      defined?(post_via_redirect)
+    end
 end
