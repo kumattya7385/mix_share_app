@@ -18,9 +18,23 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end
 
+  # テストユーザーとしてログインする
+  def log_in_as(user)
+    session[:user_id] = user.id
+  end
+
   private
     #統合テストの場合tureを返す
     def integration_test?
       defined?(post_via_redirect)
     end
+end
+
+class ActionDispatch::IntegrationTest
+
+  # テストユーザーとしてログインする
+  def log_in_as(user, password: 'password')
+    post login_path, params: { session: { email: user.email,
+                                          password: password, } }
+  end
 end
