@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang=ja>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
@@ -14,38 +18,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #e68845;"> 
-        <div class="container mr-auto">
-          <form class="form-inline">
-            <%= link_to "Vmish", '#', class: "navbar-brand",id: "logo"%>
-            <%= link_to "check", users_path%>
-            <input class="form-control-sm" type="search" placeholder="キーワードを入力" aria-label="キーワードを入力">
-          </form>
-        <div>
-        <ul class="navbar-nav justify-content-end bg-secondry">
-          <li class="nav-item active"><%= link_to "お気に入り一覧",   '#' ,class:"nav-link"%></li>
-          <li class="nav-item active"><%= link_to "投稿する",   '#' ,class:"nav-link"%></li>
-
-          <% if logged_in? %>
-            <li class="nav-item dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                アカウント <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "プロフィール", current_user %></li>
-                <li><%= link_to "設定", '#' %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "ログアウト", logout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else%>
-            <li class="nav-item active"><%= link_to "ログイン",   login_path ,class:"nav-link"%></li>
-          <% end %>
-
-        </ul>
-    </nav>
+  <%= render 'shared/header_main'%>
     <div class="container">
     　<% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
