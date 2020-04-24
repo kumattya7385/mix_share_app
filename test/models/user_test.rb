@@ -3,7 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   #テスト用の仮のユーザ作成
   def setup
-    @user = User.new(name: "Example User", email: "user@example.com",password: "foobar", password_confirmation: "foobar")
+    @user = User.new(name: "example user", email: "user@example.com",password: "foobar", password_confirmation: "foobar")
+    @user1 = User.new(name: "example User", email: "user1@example.com",password: "foobar", password_confirmation: "foobar")
   end
 
   #アカウント作成用のテスト
@@ -14,6 +15,14 @@ class UserTest < ActiveSupport::TestCase
   test "name should be present" do
     @user.name="      "
     assert_not @user.valid?
+  end
+
+  test "name should be unique case sensitive" do
+    duplicate_user=@user.dup
+    @user.save
+    assert_not @user1.valid?
+    duplicate_user.name=@user.name.upcase
+    assert duplicate_user
   end
 
   test "email should be present" do
@@ -50,6 +59,7 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.email=@user.email.upcase
     assert_not duplicate_user.valid?
   end
+
   #DBにemailを保存する時に小文字化しているかチェックするテスト
   test "email addresses should be saved as lower-case" do
     check_email="FooBar@Example.coM"

@@ -1,21 +1,3 @@
-@import "bootstrap";
-/*@import "uikit.min";*/
-
-/* 検索フォーム */
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid #999;
-  border-radius: 5px;
-}
-
-body {
-  font-family:"AvenirNext", "Lato", "Hirago KakuGothic ProN", Meiryo, sans-serif;
-  color: #555555;
-  font-size: 1.4;
-}
-
 .navlist{
   display: inline-block;
   vertical-align: middle;
@@ -30,6 +12,10 @@ body {
   width: 100%;
 }
 
+#toplogo2{
+  width: 150px;
+}
+
 #navbrand{
   width: 126px;
   height: auto;
@@ -38,7 +24,8 @@ body {
 #form2{
   position: relative;
   width:185px;
-  height: 32px;	
+  height: 32px;
+  outline: none;	
 }
 
 #form3{
@@ -120,6 +107,3 @@ body {
   background: #dce6e6;
   border: solid 1px #dce6e6;/*線*/
 }
-
-/* ログインフォーム */
-/* アカウント登録 */

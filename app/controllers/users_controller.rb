@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   
   def new
     @user=User.new
+    render layout: "form"
   end
 
   def show
@@ -21,10 +22,10 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "メールを送信しました。チェックしてアクティベーションしてください"
       redirect_to root_url
     else
-      render action: :new
+      render action: :new, layout: "form"
     end
   end
 

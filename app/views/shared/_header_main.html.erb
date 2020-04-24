@@ -1,31 +1,29 @@
-<head>
-  <nav class="navbar navbar-dark px-0" style="background-color: #40e0d0">
-    <div class="container px-lg-4 my-1">
-      <%= link_to image_tag("Vmish1.svg", id: "toplogo"), root_path, class: "navbar-brand", id:"navbrand"%>
-      <div>
-        <ul class="nav-ullist pl-md-5">
-          <li class="navlist mr-md-5 d-none d-md-inline-block">
-            <form id="form2" action="#" method="get">
-              <input id="sbox2"  id="s" name="s" type="text" placeholder="キーワードを入力"/>
-              <button type="submit" id="sbtn2"><i class="fa fa-search"></i></button>
-            </form>
-          </li>
-          <li class="navlist d-inline-block d-md-none">
-            <button id="sbtn3" data-toggle="collapse" data-target="#searchform1" aria-expand="false" aria-controls="searchform1">
-              <i class="fa fa-search"></i>
-            </button>
-          </li>
-          <li class="navlist mx-md-4">
-            <%= link_to "ログイン", login_path, id:"loginlink"%>
-          </li>
-          <li class="navlist" id="siupbox">
-            <%= link_to "新規登録", signup_path, class: 'btn btn-default', id: "siuplink"%>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-dark p-0" style="background-color: #40e0d0">
+  <div class="container px-lg-4 my-1">
+    <%= link_to image_tag("Vmish_farm2.svg", id: "toplogo"), root_path, class: "navbar-brand", id:"navbrand"%>
+    <div>
+      <ul class="nav-ullist pl-md-5">
+        <li class="navlist mr-md-5 d-none d-md-inline-block">
+          <form id="form2" action="#" method="get">
+            <input id="sbox2"  id="s" name="s" type="text" placeholder="キーワードを入力"/>
+            <button type="submit" id="sbtn2"><i class="fa fa-search"></i></button>
+          </form>
+        </li>
+        <li class="navlist d-inline-block d-md-none">
+          <button id="sbtn3" data-toggle="collapse" data-target="#searchform1" aria-expand="false" aria-controls="searchform1">
+            <i class="fa fa-search"></i>
+          </button>
+        </li>
+        <li class="navlist mx-md-4">
+          <%= link_to "ログイン", login_path, id:"loginlink"%>
+        </li>
+        <li class="navlist" id="siupbox">
+          <%= link_to "新規登録", signup_path, id: "siuplink"%>
+        </li>
+      </ul>
     </div>
-  </nav>
-</head>
+  </div>
+</nav>
 
 <div class="collapse mb-2 px-4" id="searchform1">
   <form id="form3" action="#" method="get">
