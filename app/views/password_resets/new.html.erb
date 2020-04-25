@@ -1,13 +1,16 @@
 <% provide(:title, "Forgot password") %>
-<h1>Forgot password</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="row justify-content-center" id="form-font-size">
+  <div class="col-md-5 mx-5 pt-5 pb-4" id="form-border">
+    <p align="center"id="password_reset_text">パスワードの再設定</p>
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, placeholder:'例) example@vmish.com',class: 'form-controll1' %>
 
-      <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= f.submit "再設定メールを送信する", class: "btn btn-primary mx-auto d-block", id:"btn-custom"  %>
     <% end %>
   </div>
 </div>

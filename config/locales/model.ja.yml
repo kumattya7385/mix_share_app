@@ -14,7 +14,7 @@ ja:
         firstname_kana: 名カナ
         birthday: 生年月日
         tel: 電話番号
-      address:
+        address:
         postal_code: 郵便番号
         prefecture_id: 都道府県
         city: 市区町村

@@ -1,8 +1,25 @@
 @import "bootstrap";
 /*@import "uikit.min";*/
 
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color;
+  }
+
+  // IE
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+
+  // Edge
+  &::-ms-input-placeholder {
+    color: $color;
+  }
+}
+
 /* 検索フォーム */
 input {
+  @include placeholder(#999999);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

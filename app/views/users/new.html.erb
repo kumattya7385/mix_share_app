@@ -1,22 +1,20 @@
 <% provide(:title, '新規登録') %>
 
-<div class="row justify-content-center">
-  <div class="col-md-5">
-    <%= form_for(@user,url:signup_path,builder:CustomFormHelper) do |f| %>
-      <%= f.label :name ,"ユーザID"%>
-      <%= f.text_field :name , class:'form-control', id:'form-controll1'%>
-      
+<p id="siuptext">Vmishに新規登録します。下の項目をすべて入力して登録ボタンを押してください</p>
+<p>ログインする場合は<%= link_to "こちら", login_path%></p>
+<%= form_for(@user, url:signup_path, builder:CustomFormHelper) do |f| %>
+  <%= f.label :name ,"ユーザID"%>
+  <%= f.text_field :name , placeholder:'例) 半角英 -> Vmish_user',class:'form-controll1'%>
+  
 
-      <%= f.label :email ,"メールアドレス"%> 
-      <%= f.email_field :email , class:'form-control', id:'form-controll1'%>
+  <%= f.label :email ,"メールアドレス"%> 
+  <%= f.email_field :email , placeholder:'例) example@vmish.com', class:'form-controll1'%>
 
-      <%= f.label :password ,"パスワード"%>
-      <%= f.password_field :password , class:'form-control', id:'form-controll1'%>
+  <%= f.label :password ,"パスワード"%>
+  <%= f.password_field :password , placeholder:'例) 6文字以上の半角英数', class:'form-controll1'%>
 
-      <%= f.label :password_confirmation, "パスワード(確認)" %>
-      <%= f.password_field :password_confirmation , class:'form-control', id:'form-controll1'%>
+  <%= f.label :password_confirmation, "パスワード(確認)" %>
+  <%= f.password_field :password_confirmation , placeholder:'もう1度パスワードを入力してください', class:'form-controll1'%>
 
-      <%= f.submit "アカウントを作成する", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+  <%= f.submit "アカウントを作成する", class: "btn btn-primary mx-auto d-block", id:"btn-custom" %>
+<% end %>

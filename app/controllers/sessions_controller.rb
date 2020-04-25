@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    render layout:"form"
   end
 
   def create
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
       end
     else
       flash.now[:danger] = 'メールアドレスもしくはパスワードが間違っています'
-      render action: :new
+      render action: :new, layout:"form"
     end
   end
 
