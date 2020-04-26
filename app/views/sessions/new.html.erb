@@ -6,7 +6,7 @@
   <div class="alert alert-<%= message_type %>"><%= message %></div>
 <% end %>
 
-<%= form_for(:session, url:login_path, builder:CustomFormHelper) do |f| %>
+<%= form_for(:session, url:login_path) do |f| %>
 
   <%= f.label :email, "メールアドレス" %>
   <%= f.email_field :email, placeholder:'例) example@vmish.com', class: 'form-controll1' %>

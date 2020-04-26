@@ -2,8 +2,8 @@
 
 <p id="siuptext">Vmishに新規登録します。下の項目をすべて入力して登録ボタンを押してください</p>
 <p>ログインする場合は<%= link_to "こちら", login_path%></p>
-<%= form_for(@user, url:signup_path, builder:CustomFormHelper) do |f| %>
-  <%= f.label :name ,"ユーザID"%>
+<%= form_for(@user, url:signup_path, builder: CustomFormHelper::FormErrorMessageBuilder) do |f| %>
+  <%= f.label :name ,"ユーザ名"%>
   <%= f.text_field :name , placeholder:'例) 半角英 -> Vmish_user',class:'form-controll1'%>
   
 
