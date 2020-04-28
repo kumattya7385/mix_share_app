@@ -5,4 +5,5 @@
 //= require turbolinks
 //= require uikit.min
 //= require uikit-icons.min
+//= require data-confirm-modal
 //= require_tree .
