@@ -4,6 +4,9 @@
         <%= link_to "投稿", new_item_path, class: "btn btn-outline-info" %>
     </div>
 </div>
+
+<%= render 'shared/error_messages' %>
+
 <table class="table table-bordered border-primary table-hover table-sm posts_table">
   <thead class="thead-dark">
     <tr>
@@ -25,8 +28,10 @@
         <td><%= item.created_at.to_s(:datetime_base) %></td>
         <td><%= item.updated_at.to_s(:datetime_base) %></td>
         <td><%= link_to "詳細", item_path(id: item.id), class: 'btn btn-outline-info' %></td>
-        <td><%= link_to "削除", item_path(id: item.id), class: 'btn btn-outline-info', method: :delete, data: {confirm: "てすと中です？", cancel: "キャンセル", commit: "OK", title: "てすとの確認"}%></td> 
+        <td><%= link_to "削除", item_path(id: item.id), class: 'btn btn-outline-info', method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"}%></td> 
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @items %>

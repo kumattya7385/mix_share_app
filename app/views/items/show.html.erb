@@ -5,9 +5,14 @@
   </div>
 </div>
 
+<%= render 'shared/error_messages' %>
+
 <div class="card">
   <div class="card-header bg-info text-white">
     <h4><%= @item.title %></h4>
+    <% @item.tags.each do |tag| %>
+      <span class="badge badge-light"><%= tag.name %></span>
+    <% end %>
   </div>
   <div class="card-body">
     <p class="card-text"><%= simple_format(@item.content) %></p>
@@ -16,3 +21,14 @@
   <p class="text-right font-weight-bold mr-10"><%= @item.name%></p>
   </div>
 </div>
+
+<div class="p-comment_list">
+  <div class="p-comment_listTitle">コメント</div>
+  <% if @item.comments.any?%>
+    <%= render @comments%>
+  <% else%>
+    <p>コメントはありません</p>
+  <% end%>
+</div>
+
+<%= render 'shared/comments_form'%>

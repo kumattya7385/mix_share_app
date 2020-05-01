@@ -2,9 +2,7 @@
 
 <p align= "center" id="siuptext1">Vmishにログイン</p>
 
-<% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
+<%= render 'shared/error_messages' %>
 
 <%= form_for(:session, url:login_path) do |f| %>
 

@@ -6,7 +6,7 @@ private
     def logged_in_user
         unless logged_in?
             store_location
-            flash[:danger]="Please log in"
+            flash[:danger]="ページを表示するのにログインが必要です"
             redirect_to login_url
         end
     end

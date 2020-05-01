@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label for="tag_name">タグ</label>
+    <% if @tag_name_string.empty? %>
+      <input class="form-control" type="text" name="tag_name" id="tag_name">
+    <% else%>
+      <textarea class="form-control" name="tag_name" id="tag_name"><%= @tag_name_string%></textarea>
+    <% end %>
+    <small id="title-tip" class="form-text text-muted">
+      タグを入力してください
+    </small>
+</div>

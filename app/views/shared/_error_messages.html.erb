@@ -1,12 +1,7 @@
-<% if object.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-      <%= object.errors.count %>つの入力エラーがあります。
+<% unless flash[:error_messages] %>
+  <% flash.each do |message_type, message| %>
+    <div class="flash alert alert-<%= message_type %>"><%= message %>
+    <button type="button" class="close p-auto" data-dismiss="alert">&times;</button>
     </div>
-    <ul>
-    <% object.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+  <% end %>
 <% end %>
