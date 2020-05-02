@@ -4,17 +4,26 @@
 #
 #  id         :integer          not null, primary key
 #  content    :text
-#  name       :string
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
+#
+# Indexes
+#
+#  index_items_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  user_id  (user_id => users.id)
 #
 class Item < ApplicationRecord
+  belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :item_tag_relation, dependent: :destroy
   has_many :tags, through: :item_tag_relation
 
-  validates :name, presence: true
+  validates :user_id, presence:true
   validates :title, presence: true
   validates :content, presence: true
 

@@ -1,8 +1,11 @@
 if Rails.env == 'development'
-  (1..100).each do |i|
-      Item.create(name: "ユーザ#{i}", title: "タイトル#{i}", content: "本文#{i}")
-  end
-
+  User.create!(name:  "Example User",
+    email: "example@railstutorial.org",
+    password:              "foobar",
+    password_confirmation: "foobar",
+    admin: true,
+    activated: true
+  )
   Tag.create([
     {name: 'Ruby'},
     {name: 'Ruby on Rails5'},

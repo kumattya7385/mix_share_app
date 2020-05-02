@@ -24,7 +24,7 @@
       <tr>
         <th><%= item.id %></th>
         <td><%= item.title %></td>
-        <td><%= item.name %></td>
+        <td><%= item.user.name %></td>
         <td><%= item.created_at.to_s(:datetime_base) %></td>
         <td><%= item.updated_at.to_s(:datetime_base) %></td>
         <td><%= link_to "詳細", item_path(id: item.id), class: 'btn btn-outline-info' %></td>

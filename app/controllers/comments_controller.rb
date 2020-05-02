@@ -1,11 +1,16 @@
 class CommentsController < ApplicationController
+  before_action :logged_in_user, only:[ :create]
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.create(comment_params)
+    @item=Item.find(@comment.item_id)
+    @comments = @item.comments.all
     if @comment.save
       flash[:success] = 'コメントを投稿しました!'
       redirect_to @comment.item
     else
-      redirect_to item_path(id: @comment.item_id), flash: {comment: @comment, error_messages: @comment.errors.full_messages}
+      flash[:error_messages]=@comment.errors.full_messages
+      @item=Item.find(@comment.item_id)
+      render template: "items/show"
     end
   end
 

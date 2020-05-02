@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_064138) do
+ActiveRecord::Schema.define(version: 2020_05_02_072433) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "item_id", null: false
-    t.string "name", null: false
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.index ["item_id"], name: "index_comments_on_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "item_tag_relations", force: :cascade do |t|
@@ -31,11 +32,12 @@ ActiveRecord::Schema.define(version: 2020_04_30_064138) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "name"
     t.string "title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -62,6 +64,8 @@ ActiveRecord::Schema.define(version: 2020_04_30_064138) do
   end
 
   add_foreign_key "comments", "items"
+  add_foreign_key "comments", "users"
   add_foreign_key "item_tag_relations", "items"
   add_foreign_key "item_tag_relations", "tags"
+  add_foreign_key "items", "users"
 end
