@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function() {
   $('.tab').on('click',function(){
     $('.is-active').removeClass('is-active');
     $(this).addClass('is-active');
-    $('.is-show').removeClass('is-show')
+    $('.is-show').removeClass('is-show');
     const index = $(this).index();
     $('.ranking-group').eq(index).addClass('is-show');
     $('.midashi').eq(index).addClass('is-show');
