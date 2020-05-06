@@ -1,20 +1,20 @@
-<% provide(:title, 'Reset password') %>
-<h1>Reset password</h1>
+<% provide(:title, 'パスワードの再設定') %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+<div class="row justify-content-center" id="form-font-size">
+  <div class="col-md-5 mx-5 pt-5 pb-4" id="form-border">
+    <p align="center"id="password_reset_text">パスワードの再設定します。以下を入力してください</p>
+    <%= form_for(@user, url: password_reset_path(params[:id]), builder: CustomFormHelper::FormErrorMessageBuilder) do |f| %>
+      <% render 'shared/error_messages'%>
 
       <%= hidden_field_tag :email, @user.email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :password, "新しいパスワード" %>
+      <%= f.password_field :password, placeholder:'例) 6文字以上の半角英数',class: 'form-controll1' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.label :password_confirmation, "新しいパスワード(確認)" %>
+      <%= f.password_field :password_confirmation , placeholder:'もう1度パスワードを入力してください', class:'form-controll1'%>
 
-      <%= f.submit "Update password", class: "btn btn-primary" %>
+      <%= f.submit "パスワード再設定", class: "btn btn-primary mx-auto d-block", id:"btn-custom"  %>
     <% end %>
   </div>
 </div>

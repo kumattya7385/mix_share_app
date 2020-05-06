@@ -122,6 +122,8 @@ GEM
       minitest (>= 3.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    impressionist (2.0.0)
+      nokogiri (~> 1)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jquery-rails (4.3.1)
@@ -301,6 +303,7 @@ DEPENDENCIES
   faker
   guard (= 2.16.2)
   guard-minitest (= 2.4.4)
+  impressionist
   jbuilder (~> 2.7)
   jquery-rails (= 4.3.1)
   kaminari

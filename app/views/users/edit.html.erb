@@ -1,29 +1,20 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<% provide(:title, "アカウント設定") %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages',object: f.object %>
+<div class="row justify-content-center" id="form-font-size">
+  <div class="col-md-5 mx-5 pt-5 pb-4" id="form-border">
+    <p align="center"id="password_reset_text">アカウントの設定</p>
+    <%= form_for(@user, builder: CustomFormHelper::FormErrorMessageBuilder) do |f| %>
+      <% render 'shared/error_messages'%>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :name, "ユーザ名" %>
+      <%= f.text_field :name, class: 'form-controll1' %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :email,"メールアドレス" %>
+      <%= f.email_field :email, class: 'form-controll1' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <p>パスワードを再設定する場合は<%= link_to "こちらから", password_reset_path%></p>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= f.submit "更新する", class: "btn btn-primary mx-auto d-block", id:"btn-custom"  %>
     <% end %>
-
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
-    </div>
   </div>
 </div>

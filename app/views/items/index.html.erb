@@ -1,37 +1,30 @@
-<div class="d-flex align-items-center">
-    <h1>投稿一覧</h1>
-    <div class="ml-auto posts_button">
-        <%= link_to "投稿", new_item_path, class: "btn btn-outline-info" %>
+<div class="row">
+  <div class="col-8 offset-2">
+    <div class="d-flex align-items-center">
+        <h1>投稿一覧</h1>
     </div>
+
+    <%= render 'shared/error_messages' %>
+      <div class="rank-border">
+        <% @items.each do |item|%>
+          <section class="item-line">
+            <div class="item-box-link p-3">
+              <%= link_to '', item_path(id:item.id) %>
+              <div>
+                <h4 class="item-title"><%= item.title%></h4>
+                <p class="mb-4"><%= item.content[0,60]%><%= "..." if item.content.length >= 60%></p>
+              </div>
+              <div class="item-footer">
+                <span class="mr-1">by <%= item.user.name%></span>
+                <span class="mr-2">作成日:<%= item.created_at.to_s(:datetime_base)%></span>
+                <span class="mr-2">更新日:<%= item.updated_at.to_s(:datetime_base)%></span> 
+                <span >item.id:<%= item.id %></span>
+              </div>
+            </div>
+          </section>
+        <% end%>
+      </div>
+
+    <%= paginate @items %>
+  </div>
 </div>
-
-<%= render 'shared/error_messages' %>
-
-<table class="table table-bordered border-primary table-hover table-sm posts_table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col" style="width: 40px">No.</th>
-      <th scope="col" style="width: 650px">投稿タイトル</th>
-      <th scope="col">投稿者</th>
-      <th scope="col">投稿日</th>
-      <th scope="col">更新日時</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <th><%= item.id %></th>
-        <td><%= item.title %></td>
-        <td><%= item.user.name %></td>
-        <td><%= item.created_at.to_s(:datetime_base) %></td>
-        <td><%= item.updated_at.to_s(:datetime_base) %></td>
-        <td><%= link_to "詳細", item_path(id: item.id), class: 'btn btn-outline-info' %></td>
-        <td><%= link_to "削除", item_path(id: item.id), class: 'btn btn-outline-info', method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"}%></td> 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= paginate @items %>

@@ -1,0 +1,27 @@
+<% if logged_in? %>
+  <!-- ログインしたユーザ用のリンク -->
+
+  <li class="navlist myaccount mx-md-4">
+    <button class="init-bottom" id="account-btn">アカウント</button>
+    <ul class="drop-menu">
+      <li><%= link_to "マイページ",current_user, class: "drop-item"%></li>
+      <div class="drop-line"></div>
+      <li><%= link_to "設定",edit_user_path(current_user.id), class: "drop-item"%></li>
+      <li><%= link_to "問い合わせ", contact_path, class: "drop-item"%></li>
+      <div class="drop-line"></div>
+      <li><%= link_to "ログアウト", logout_path, class: "drop-item", method: :delete%></li>
+    </ul>
+  </li>
+
+  <li class="navlist" id="siupbox">
+    <%= link_to "投稿", new_item_path, id: "siuplink"%>
+  </li>
+<% else %>
+  <!-- ログインしてないユーザ用のリンク -->
+  <li class="navlist mx-md-4">
+    <%= link_to "ログイン", login_path, id:"loginlink"%>
+  </li>
+  <li class="navlist" id="siupbox">
+    <%= link_to "新規登録", signup_path, id: "siuplink"%>
+  </li>
+<% end %>

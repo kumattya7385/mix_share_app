@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new(item_id: @item.id)
     @comments = @item.comments.all
+    impressionist(@item, nil, :unique => [:session_hash])
   end
 
   def edit

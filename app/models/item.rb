@@ -2,12 +2,13 @@
 #
 # Table name: items
 #
-#  id         :integer          not null, primary key
-#  content    :text
-#  title      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
+#  id                :integer          not null, primary key
+#  content           :text
+#  impressions_count :integer          default(0)
+#  title             :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  user_id           :integer
 #
 # Indexes
 #
@@ -26,6 +27,8 @@ class Item < ApplicationRecord
   validates :user_id, presence:true
   validates :title, presence: true
   validates :content, presence: true
+
+  is_impressionable counter_cache: true
 
   def save_tags(savepost_tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?

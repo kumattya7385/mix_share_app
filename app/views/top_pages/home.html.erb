@@ -1,2 +1,38 @@
 <%= render 'shared/error_messages'%>
-<h1>これはniconico動画やyoutubeの歌ってみたのVocal Mixをしている人向けの情報共有サイトです</h1>
+
+<div class="row mb-5">
+  <div class="col-10 offset-1 p-4" id="home-head">
+    <h1>Vmishはニコニコ動画やyoutuebeの歌ってみたのMixしている人向けの情報共有サイトです</h1>
+    <h4 class="mt-md-5">Mixに関することをみんなと情報共有しよう！また気になった人がいたらMixの依頼を送ろう！</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-10 offset-1 col-md-7 offset-md-1 mb-3 rank-border">
+    <%= render 'shared/item_list'%>
+  </div>
+  <div class="col-10  offset-1 col-md-3 offset-md-0 pr-md-0">
+    <% unless current_user.nil? %>
+      <div class="profile-group">
+        <div class="profile-name">
+          <span style="font-size:small;">ユーザー名</span>
+          <p class="profile-center"><%= link_to current_user.name, user_path(current_user.id) %></p>
+        </div>
+        <div class="drop-line"></div>
+        <div class="profile-footer">
+          <span style="font-size:small;">投稿記事</span>
+          <p class="profile-center"><%= link_to current_user.items.count, user_path(current_user.id) %></p>
+        </div>
+      </div>
+    <% else%>
+      <div class="profile-group" id="not-login-profile">
+        <div class="profile-name">
+          <p style="font-weight:bold;">アカウントを作って記事を投稿しよう！！</p>
+          <p class="mb-1" style="font-size:small;">アカウントを作成する場合はこちら ➡ <%= link_to "新規登録", new_user_path %></p>
+          <p style="font-size:small">ログインする場合はこちら ➡ <%= link_to "ログイン", login_path %></p>
+          
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

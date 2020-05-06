@@ -20,12 +20,3 @@
 #  user_id  (user_id => users.id)
 #
 
-one:
-  item: one
-  name: MyString
-  comment: MyText
-
-two:
-  item: two
-  name: MyString
-  comment: MyText

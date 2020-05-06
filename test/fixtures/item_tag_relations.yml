@@ -19,10 +19,3 @@
 #  tag_id   (tag_id => tags.id)
 #
 
-one:
-  item: one
-  tag: one
-
-two:
-  item: two
-  tag: two

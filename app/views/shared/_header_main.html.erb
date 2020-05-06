@@ -14,12 +14,7 @@
             <i class="fa fa-search"></i>
           </button>
         </li>
-        <li class="navlist mx-md-4">
-          <%= link_to "ログイン", login_path, id:"loginlink"%>
-        </li>
-        <li class="navlist" id="siupbox">
-          <%= link_to "新規登録", signup_path, id: "siuplink"%>
-        </li>
+        <%= render 'shared/change_header'%>
       </ul>
     </div>
   </div>
