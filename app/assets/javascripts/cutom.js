@@ -17,4 +17,15 @@ $(document).on('turbolinks:load', function() {
     $('.ranking-group').eq(index).addClass('is-show');
     $('.midashi').eq(index).addClass('is-show');
   });
+
+  $('#countdown').on('input',function(){
+    var remain = 255 - $(this).val().length;
+
+    $('#countdown-number').text("残り"+remain+"文字");
+    if (remain < 0) {
+        $('#countdown-number').css('color', 'red');
+    } else {
+        $('##countdown-number').css('color', 'grey');
+    }
+});
 });

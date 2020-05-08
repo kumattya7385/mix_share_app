@@ -5,17 +5,17 @@
     </div>
 
     <%= render 'shared/error_messages' %>
-      <div class="rank-border">
+      <div class="rank-border rank-padding">
         <% @items.each do |item|%>
           <section class="item-line">
             <div class="item-box-link p-3">
-              <%= link_to '', item_path(id:item.id) %>
+              <%= link_to '', item_path(id:item.id) ,class:'item-path'%>
               <div>
-                <h4 class="item-title"><%= item.title%></h4>
-                <p class="mb-4"><%= item.content[0,60]%><%= "..." if item.content.length >= 60%></p>
+                <h5 class="item-title"><%= item.title%></h5>
+                <p class="mb-3 text-samll"><%= item.content[0,60]%><%= "..." if item.content.length >= 60%></p>
               </div>
               <div class="item-footer">
-                <span class="mr-1">by <%= item.user.name%></span>
+                <span class="mr-1">by </span><%= link_to item.user.name, item.user, class:'item-user pr-2'%>
                 <span class="mr-2">作成日:<%= item.created_at.to_s(:datetime_base)%></span>
                 <span class="mr-2">更新日:<%= item.updated_at.to_s(:datetime_base)%></span> 
                 <span >item.id:<%= item.id %></span>

@@ -1,8 +1,8 @@
 .item-line{
   width: 100%;
   border-bottom: solid 1px #e6e6e6;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: .5rem;
 }
 
 .home-tab{
@@ -23,12 +23,23 @@
   border-radius: 4px;
 }
 
-div.item-box-link a{
+.item-path{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.item-user{
+  position: relative;
+  color: #555555;
+  text-decoration: none;
+  z-index: 1;
+}
+.item-user:hover{
+  color: #72b5b7;
+  text-decoration: #72b5b7;
 }
 
 .item-footer{
@@ -77,6 +88,11 @@ div.item-box-link a{
   display:block;
 }
 
+.rank-padding{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .midashi{
   display: none;
 }
@@ -119,4 +135,8 @@ div.item-box-link a{
 
 #not-login-profile{
   background: #f1fcfc;
+}
+
+.text-samll{
+  font-size: 15px;
 }

@@ -7,6 +7,7 @@
 #  activated_at      :datetime
 #  activation_digest :string
 #  admin             :boolean          default(FALSE)
+#  content           :string
 #  email             :string
 #  name              :string
 #  password_digest   :string
@@ -35,6 +36,7 @@ class User < ApplicationRecord
 
     has_secure_password
     validates :password, presence:true  ,length:{minimum: 6}, allow_nil:true
+    validates :content, length:{maximum: 255}
 
     # 与えられた文字列のハッシュ値を返す 
     def User.digest(string)

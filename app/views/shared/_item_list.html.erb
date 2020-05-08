@@ -1,5 +1,12 @@
-<p class="midashi is-show p-3">新着記事</p>
-<p class="midashi p-3">人気記事</p>
+<div class="midashi is-show p-3">
+  <span class="fas fa-star"></span>
+  <span>新着記事</span>
+</div>
+<div class="midashi p-3">
+  <span class="fas fa-crown"></span>
+  <span>人気記事</span>
+</div>
+
 <div class="home-tab">
   <ul class="tab-group">
     <li class="tab is-active">新着</li>
@@ -11,13 +18,13 @@
   <% @recent_item.each do |item|%>
     <section class="item-line">
       <div class="item-box-link p-3">
-        <%= link_to '', item_path(id:item.id) %>
+        <%= link_to '', item_path(id:item.id), class:'item-path'%>
         <div>
-          <h4 class="item-title"><%= item.title%></h4>
-          <p class="mb-4"><%= item.content[0,60]%><%= "..." if item.content.length >= 60%></p>
+          <h5 class="item-title"><%= item.title%></h5>
+          <p class="mb-3 text-samll"><%= item.content[0,60]%><%= "..." if item.content.length >= 60%></p>
         </div>
         <div class="item-footer">
-          <span class="mr-1">by <%= item.user.name%></span>
+          <span class="mr-1">by </span><%= link_to item.user.name, item.user, class:'item-user pr-2'%>
           <span><%= time_ago_in_words(item.created_at)%>前</span>
         </div>
       </div>
@@ -29,13 +36,13 @@
   <% @most_viewed.each do |item|%>
     <section class="item-line">
       <div class="item-box-link p-3">
-        <%= link_to '', item_path(id:item.id) %>
+        <%= link_to '', item_path(id:item.id), class:'item-path' %>
         <div>
-          <h4 class="item-title"><%= item.title%></h4>
-          <p class="mb-4"><%= item.content[0,60]%><%= puts "..." if item.content.length >= 60%></p>
+          <h5 class="item-title"><%= item.title%></h5>
+          <p class="mb-3 text-samll"><%= item.content[0,60]%><%= puts "..." if item.content.length >= 60%></p>
         </div>
         <div class="item-footer">
-          <span class="mr-1">by <%= item.user.name%></span>
+          <span class="mr-1">by </span><%= link_to item.user.name, item.user, class:'item-user pr-2'%>
           <span><%= time_ago_in_words(item.created_at)%>前</span>
         </div>
       </div>

@@ -4,7 +4,8 @@ if Rails.env == 'development'
     password:              "foobar",
     password_confirmation: "foobar",
     admin: true,
-    activated: true
+    activated: true,
+    content: "こんにちは。これはユーザープロフィール用のテストです。表示が上手くいっているといいです。"
   )
 
   User.create!(name:  "ExampleKuma",

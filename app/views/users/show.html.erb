@@ -2,12 +2,46 @@
 <%= render 'shared/error_messages'%>
 
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+  <div class="col-10 offset-1 col-md-4 offset-md-0">
+    <div class="profile-group">
+      <section class="user_info">
+        <h3>
+          <%= gravatar_for @user %>
+          <%= @user.name %>
+        </h3>
+      </section>
+    </div>
+  </div>
+
+  <div class="col-10 offset-1 col-md-8 offset-md-0">
+    <div class="ranking-group is-show rank-border rank-padding">
+      <div class="p-3" style="font-size: 120%">
+        <span class="fas fa-align-left" style="color: #40e0d0"></span>
+        <span class="my-items">全ての投稿</span>
+      </div>
+      <% @items.each do |item|%>
+        <section class="item-line">
+          <div class="item-box-link p-3">
+            <%= link_to '', item_path(id:item.id) ,class:'item-path'%>
+            <div>
+              <h5 class="item-title"><%= item.title%></h5>
+              <p class="mb-3 text-samll"><%= item.content[0,60]%><%= "..." if item.content.length >= 60%></p>
+            </div>
+            <div class="item-footer">
+              <i class="fas fa-tags"></i>
+              <% item.tags.each_with_index do |tag,index| %>
+                <% unless index == item.tags.size-1%>
+                  <span>#<%= tag.name %>   </span>
+                <% else%>
+                  <span>#<%= tag.name %></span>
+                <% end%>
+              <% end %>
+              <span style="float: right;"><%= item.updated_at.to_s(:datetime_base) %></span>
+            </div>
+          </div>
+        </section>
+      <% end%>
+      <%= paginate @items%>
+    </div>
+  </div>
 </div>
