@@ -1,0 +1,21 @@
+#item-count{
+  display:block;
+  text-align:right;
+}
+
+.sort_order{
+  font-family: -apple-system, -apple-system, "Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif !important;
+  color: #555555;
+  font-weight: bold;
+  font-size: small;
+  padding: 4px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.sort_order option{
+  font-weight: bold;
+  font-size: small;
+  padding: 4px;
+  outline: none;
+}

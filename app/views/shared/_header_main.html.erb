@@ -4,8 +4,8 @@
     <div>
       <ul class="nav-ullist pl-md-5">
         <li class="navlist mr-md-5 d-none d-md-inline-block">
-          <form id="form2" action="#" method="get">
-            <input id="sbox2"  id="s" name="s" type="text" placeholder="キーワードを入力"/>
+          <form for="sbox2" id="form2" action="/search" accept-charset="UTF-8" method="get">
+            <input id="sbox2"  name="keyword" type="text" value="" placeholder="キーワードを入力" required/>
             <button type="submit" id="sbtn2"><i class="fa fa-search"></i></button>
           </form>
         </li>
@@ -21,8 +21,8 @@
 </nav>
 
 <div class="collapse mb-2 px-4" id="searchform1">
-  <form id="form3" action="#" method="get">
-    <input id="sbox3" name="s" type="text" placeholder="キーワードを入力"/>
+  <form id="form3" action="/search" method="get">
+    <input id="sbox3" name="keyword" type="text" value="" placeholder="キーワードを入力" required/>
   </form>
 </div>
 

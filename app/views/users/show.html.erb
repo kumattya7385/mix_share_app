@@ -5,10 +5,21 @@
   <div class="col-10 offset-1 col-md-4 offset-md-0">
     <div class="profile-group">
       <section class="user_info">
-        <h3>
-          <%= gravatar_for @user %>
-          <%= @user.name %>
-        </h3>
+        <div>
+          <h4 class="m-3">
+            <%= gravatar_for @user %>
+            <%= @user.name %>
+          </h4>
+        </div>
+        <div class="mx-3">
+          <p style="font-size: 15px;">
+            <%= @user.content%>
+          </p>
+        </div>
+        <div class="profile-footer">
+          <span style="font-size:small;">投稿記事</span>
+          <p class="profile-center"><%= link_to current_user.items.count, user_path(current_user.id) %></p>
+        </div>
       </section>
     </div>
   </div>

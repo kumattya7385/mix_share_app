@@ -1,0 +1,19 @@
+<%= render 'shared/error_messages' %>
+<div class="row">
+  <div class="col-8 offset-2">
+    <div class="home-tab">
+      <ul class="tab-group">
+        <li class="tab is-active">記事</li>
+        <li class="tab">ユーザー</li>
+      </ul>
+    </div>
+    <div class="midashi is-show">
+      <span id="item-count"><%= @i_count%>件</span>
+    </div>
+    <div class="midashi">
+      <span id="item-count"><%= @u_count%>件</span>
+    </div>
+    <%= render 'item_list'%>
+    <%= render 'user_list'%>
+  </div>
+</div>

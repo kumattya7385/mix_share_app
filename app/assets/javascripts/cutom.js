@@ -27,5 +27,5 @@ $(document).on('turbolinks:load', function() {
     } else {
         $('##countdown-number').css('color', 'grey');
     }
-});
+  });
 });

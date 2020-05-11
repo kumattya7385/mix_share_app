@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'users/new'
   root  'top_pages#home'
   get   '/contact', to: 'top_pages#contact'
+  get '/search', to: 'top_pages#search'
   get   '/signup',   to: 'users#new'
   post   '/signup',   to: 'users#create'
   get   '/login',   to: 'sessions#new'

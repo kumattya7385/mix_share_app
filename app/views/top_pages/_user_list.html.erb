@@ -1,0 +1,18 @@
+<div class="ranking-group">
+  <% unless @users.blank?%>
+    <% @users.each do |user|%>
+      <section class="item-line">
+        <div class="item-box-link p-3">
+          <%= link_to '', user_path(id:user.id), class:'item-path'%>
+          <div>
+            <h5 class="item-title"><%= user.name%></h5>
+            <p class="mb-3 text-samll"><%= user.content%></p>
+          </div>
+        </div>
+      </section>
+    <% end%>
+    <%= paginate @users %>
+  <% else%>
+    <p align="center" class="mt-3">見つかりませんでした。キーワードを変えてみてください</p>
+  <% end%>
+</div>

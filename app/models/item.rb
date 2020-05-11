@@ -46,4 +46,12 @@ class Item < ApplicationRecord
         self.tags << post_tag
       end
   end
+
+  def self.search(keyword)
+    unless keyword.blank?
+      return self.where(['content LIKE :text OR title LIKE :text', text: "%#{keyword}%"])
+    else
+      return nil
+    end 
+  end
 end

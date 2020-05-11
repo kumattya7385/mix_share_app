@@ -14,7 +14,7 @@
 
       <%= f.label :content,"自己紹介文" %>
       <%= f.text_area :content, placeholder:'255文字まで',class:'form-controll1', id:'countdown', rows:8%>
-      <span id="countdown-number" class="float-right">残り<%= 255-@user.content.length%>文字</span>
+      <span id="countdown-number" class="float-right">残り<%=  @user.content ? 255-@user.content.length : 255%>文字</span>
 
       <p class="mt-3">パスワードを再設定する場合は<%= link_to "こちらから", new_password_reset_path%></p>
 
