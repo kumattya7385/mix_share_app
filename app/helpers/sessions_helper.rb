@@ -2,7 +2,7 @@ module SessionsHelper
      #渡されたユーザをログイン->一時セッションに保存
      def log_in(user)
         session[:user_id]=user.id
-    end
+     end
 
     #渡されたユーザがログインしているならばtrueを返す
     def current_user?(user)
