@@ -12,6 +12,7 @@ User.create!(name:  "TestUser",
   password:              "foobar",
   password_confirmation: "foobar",
   activated: true
+  content: "これはテストユーザーです"
 )
 
 (1..20).each do |i|

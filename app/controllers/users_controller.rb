@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only:[ :edit, :update, :index, :destroy]
   before_action :correct_user, only:[ :edit, :update]
   before_action :admin_user, only: :destroy
+  before_action :test_user, only: [:update, :destroy]
   
   def index
     @users = User.where(activated: true).page(params[:page]).per(10)
@@ -66,5 +67,12 @@ class UsersController < ApplicationController
     #管理者かどうかを確認する
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def test_user
+      if current_user.email == "testuser@vmish.com"
+        flash[:danger]="テストユーザーの情報を更新することはできません"
+        redirect_to user_url
+      end
     end
 end

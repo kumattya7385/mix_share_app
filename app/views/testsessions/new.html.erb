@@ -1,0 +1,13 @@
+<% provide(:title, "パスワードの再設定") %>
+
+<div class="row justify-content-center" id="form-font-size">
+  <div class="col-md-5 mx-5 pt-5 pb-4" id="form-border">
+    <p align="center"id="password_reset_text">テストユーザーでログイン</p>
+    <p>テストユーザーでログインする場合は下のボタンをクリックしてください</p>
+    <%= form_for(User.new, url:login_path) do |f| %>
+      <%= f.hidden_field :email, value: "testuser@example.com" %>
+      <%= f.hidden_field :password, value: "foobar" %>
+      <%= f.submit "かんたんログイン", class:"btn btn-primary mx-auto d-block", id:"btn-custon"%> 
+    <% end %>
+  </div>
+</div>
